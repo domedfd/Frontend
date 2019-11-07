@@ -35,7 +35,7 @@ class Auth extends Component {
     return (
       <div className="login-box">
         <div className="login-logo">
-          <b> Dom</b>group
+          <b> Dom</b>group {process.env.AUTH_SECRET || "Esta vazio"}
         </div>
         <div className="login-box-body">
           <p className="login-box-msg">Bienvenido!</p>
