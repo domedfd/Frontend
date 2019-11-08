@@ -1,8 +1,8 @@
 import axios from "axios";
-const BASE_URL = "https://dg-b.herokuapp.com/api";
+import consts from "../consts";
 
 export function getSummary() {
-  const request = axios.get(`${BASE_URL}/billingCycles/summary`);
+  const request = axios.get(`${consts.API_URL}/billingCycles/summary`);
   console.log("domenico" + request);
   return {
     type: "BILLING_SUMMARY_FETCHED",

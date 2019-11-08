@@ -2,12 +2,12 @@ import axios from "axios";
 import { toastr } from "react-redux-toastr";
 import { initialize } from "redux-form";
 import { showTabs, selectTab } from "../common/tab/tabActions";
+import consts from "../consts";
 
-const BASE_URL = "https://dg-b.herokuapp.com/api";
 const INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
 export function getList() {
-  const request = axios.get(`${BASE_URL}/billingCycles/`);
+  const request = axios.get(`${consts.API_URL}/billingCycles/`);
   return {
     type: "BILLING_CYCLES_FETCHED",
     payload: request
@@ -28,7 +28,7 @@ export function remove(values) {
 function submit(values, method) {
   const id = values._id ? values._id : "";
   return dispatch => {
-    axios[method](`${BASE_URL}/billingCycles/${id}`, values)
+    axios[method](`${consts.API_URL}/billingCycles/${id}`, values)
       .then(resp => {
         toastr.success("Exito", "Operacao Realizada con exito");
         dispatch(init());

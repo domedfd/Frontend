@@ -1,4 +1,4 @@
 export default {
-  API_URL: "https://dg-b.herokuapp.com/api",
-  OAPI_URL: "https://dg-b.herokuapp.com/oapi"
+  API_URL: process.env.PORT ? "https://dg-b.herokuapp.com/api" : "http://localhost:3003/api",
+  OAPI_URL: process.env.PORT ? "https://dg-b.herokuapp.com/api" : "http://localhost:3003/oapi"
 };
