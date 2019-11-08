@@ -5,8 +5,8 @@ import ContentHeader from "../common/template/contentHeader";
 import Content from "../common/template/content";
 import ValueBox from "../common/widget/valueBox";
 import Row from "../common/layout/row";
+import consts from "../consts";
 
-const BASE_URL = "https://dg-b.herokuapp.com/api";
 
 export default class Dashboard2 extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export default class Dashboard2 extends Component {
 
   componentWillMount() {
     axios
-      .get(`${BASE_URL}/billingCycles/summary`)
+      .get(`${consts.API_URL}/billingCycles/summary`)
       .then(resp => this.setState(resp.data));
   }
 
