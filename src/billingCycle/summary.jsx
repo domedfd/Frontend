@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Grid from "../common/layout/gird";
 import Row from "../common/layout/row";

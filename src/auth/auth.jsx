@@ -32,15 +32,13 @@ class Auth extends Component {
     const { loginMode } = this.state;
     const { handleSubmit } = this.props;
 
-    console.log(process.env);
     return (
       <div className="login-box">
         <div className="login-logo">
-          <b> Dom</b>group {process.env.PORT || "Esta vazio"} <br />
+          <b> Dom</b>group
+          <br />
           {Const.OAPI_URL} <br />
-          {Const.API_URL}
-          DOMENICO: {Const.DOMENICO} <br />
-          PORTA: {Const.PORTA} <br />
+          {Const.API_URL} <br />
         </div>
         <div className="login-box-body">
           <p className="login-box-msg">Bienvenido!</p>

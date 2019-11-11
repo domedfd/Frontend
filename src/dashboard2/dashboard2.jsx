@@ -7,14 +7,13 @@ import ValueBox from "../common/widget/valueBox";
 import Row from "../common/layout/row";
 import consts from "../consts";
 
-
 export default class Dashboard2 extends Component {
   constructor(props) {
     super(props);
     this.state = { credit: 0, debt: 0 };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(`${consts.API_URL}/billingCycles/summary`)
       .then(resp => this.setState(resp.data));
