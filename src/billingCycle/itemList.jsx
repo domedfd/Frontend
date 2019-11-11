@@ -4,7 +4,10 @@ import { bindActionCreators } from "redux";
 import { Field, arrayInsert, arrayRemove } from "redux-form";
 import Grid from "../common/layout/gird";
 import Input from "../common/form/input";
+import Select from "../common/form/Select";
 import If from "../common/operador/if";
+
+import "../common/template/custom.css";
 
 class ItemList extends Component {
   add(index, item = {}) {
@@ -47,11 +50,28 @@ class ItemList extends Component {
         <If test={this.props.showStatus}>
           <td>
             <Field
+              className="form-control"
               name={`${this.props.field}[${index}].status`}
-              component={Input}
-              placeholder="Informe el estatus"
+              component="select"
               readOnly={this.props.readOnly}
-            />
+            >
+              <option
+                value="PAGO"
+                {...(this.props.list[index].status === "PAGO"
+                  ? "selected"
+                  : "")}
+              >
+                PAGO
+              </option>
+              <option
+                value="PENDENTE"
+                {...(this.props.list[index].status !== "PAGO"
+                  ? "selected"
+                  : "")}
+              >
+                PENDENTE
+              </option>
+            </Field>
           </td>
         </If>
 
