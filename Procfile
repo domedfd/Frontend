@@ -1,1 +1,1 @@
-web: http-server build -p $PORT
+web: bin/boot
