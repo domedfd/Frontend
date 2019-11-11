@@ -32,6 +32,7 @@ class Auth extends Component {
     const { loginMode } = this.state;
     const { handleSubmit } = this.props;
 
+    console.log(process.env);
     return (
       <div className="login-box">
         <div className="login-logo">
