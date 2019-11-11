@@ -38,6 +38,8 @@ class Auth extends Component {
           <b> Dom</b>group {process.env.PORT || "Esta vazio"} <br />
           {Const.OAPI_URL} <br />
           {Const.API_URL}
+          DOMENICO: {Const.DOMENICO} <br />
+          PORTA: {Const.PORTA} <br />
         </div>
         <div className="login-box-body">
           <p className="login-box-msg">Bienvenido!</p>
