@@ -1,1 +1,1 @@
-web: serve -s build -p
+web: http-server build -p $PORT
