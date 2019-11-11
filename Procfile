@@ -1,1 +1,1 @@
-web: bin/boot
+web: serve -s build -p
