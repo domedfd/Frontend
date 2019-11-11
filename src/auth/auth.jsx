@@ -11,6 +11,7 @@ import Row from "../common/layout/row";
 import Grid from "../common/layout/gird";
 import Messages from "../common/msg/messages";
 import Input from "../common/form/inputAuth";
+import Const from "../../src/consts";
 
 class Auth extends Component {
   constructor(props) {
@@ -34,7 +35,9 @@ class Auth extends Component {
     return (
       <div className="login-box">
         <div className="login-logo">
-          <b> Dom</b>group {process.env.AUTH_SECRET || "Esta vazio"}
+          <b> Dom</b>group {process.env.PORT || "Esta vazio"} <br />
+          {Const.OAPI_URL} <br />
+          {Const.API_URL}
         </div>
         <div className="login-box-body">
           <p className="login-box-msg">Bienvenido!</p>
