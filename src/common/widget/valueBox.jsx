@@ -3,12 +3,6 @@ import Grid from "../layout/gird";
 
 export default props => (
   <Grid cols={props.cols}>
-    {console.log(
-      new Intl.NumberFormat("es-PY", {
-        style: "currency",
-        currency: "PYG"
-      }).format(props.value)
-    )}
     <div className={`small-box bg-${props.color}`}>
       <div className="inner">
         <h3>

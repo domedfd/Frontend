@@ -4,30 +4,40 @@ import { bindActionCreators } from "redux";
 import { Field, arrayInsert, arrayRemove } from "redux-form";
 import Grid from "../common/layout/gird";
 import Input from "../common/form/input";
-import Select from "../common/form/Select";
 import If from "../common/operador/if";
+import CoverteMoeda from "../common/form/NormalizePhone";
 
 import "../common/template/custom.css";
 
 class ItemList extends Component {
   add(index, item = {}) {
     if (!this.props.readOnly) {
-      console.log(index);
       this.props.arrayInsert("billingCycleForm", this.props.field, index, item);
     }
   }
 
   remove(index) {
-    console.log("clicou no remove");
-
     if (!this.props.readOnly && this.props.list.length > 1) {
-      console.log("Eliminou o index: " + index);
       this.props.arrayRemove("billingCycleForm", this.props.field, index);
     }
   }
 
   renderRows() {
     const list = this.props.list || [];
+
+    const filtro = this.props.list.reduce(
+      // (a, o) => (o.value ? a.concat(CoverteMoeda(`${o.value}`)) : a),
+      (a, o) =>
+        o.value
+          ? a.concat({
+              _id: o._id,
+              name: o.name,
+              value: CoverteMoeda(`${o.value}`)
+            })
+          : a,
+      []
+    );
+
     return list.map((item, index) => (
       <tr key={index}>
         <td>
@@ -44,6 +54,7 @@ class ItemList extends Component {
             component={Input}
             placeholder="Informe el valor"
             readOnly={this.props.readOnly}
+            normalize={this.props.normalize}
           />
         </td>
 

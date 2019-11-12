@@ -7,6 +7,7 @@ import { init } from "./billingCycleActions";
 import labelAndInput from "../common/form/labelAndInput";
 import ItemList from "./itemList";
 import Summary from "./summary";
+import CoverteMoeda from "../common/form/NormalizePhone";
 
 class BillinCycleForm extends Component {
   calculateSummary() {
@@ -19,6 +20,7 @@ class BillinCycleForm extends Component {
 
   render() {
     const { handleSubmit, readOnly, credits, debts } = this.props;
+
     const { sumOfCredits, sumOfDebts } = this.calculateSummary();
     return (
       <form role="form" onSubmit={handleSubmit}>
@@ -54,9 +56,11 @@ class BillinCycleForm extends Component {
           <ItemList
             cols="12 6"
             list={credits}
+            value="1"
             readOnly={readOnly}
             field="credits"
             legend="Creditos"
+            normalize={CoverteMoeda}
           />
           <ItemList
             cols="12 6"
@@ -65,6 +69,7 @@ class BillinCycleForm extends Component {
             field="debts"
             legend="Debitos"
             showStatus={true}
+            normalize={CoverteMoeda}
           />
         </div>
         <div className="box-footer">

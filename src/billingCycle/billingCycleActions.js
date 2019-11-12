@@ -3,6 +3,7 @@ import { toastr } from "react-redux-toastr";
 import { initialize } from "redux-form";
 import { showTabs, selectTab } from "../common/tab/tabActions";
 import consts from "../consts";
+import CoverteMoeda, { CoverteNum } from "./../common/form/NormalizePhone";
 
 const INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
@@ -26,9 +27,17 @@ export function remove(values) {
 }
 
 function submit(values, method) {
-  const id = values._id ? values._id : "";
+  const novo = { ...values };
+  for (let index = 0; index < novo.debts.length; index++) {
+    const debitos = novo.debts[index].value;
+    const creditos = novo.credits[index].value;
+    novo.debts[index].value = CoverteNum(debitos);
+    novo.credits[index].value = CoverteNum(creditos);
+  }
+
+  const id = novo._id ? novo._id : "";
   return dispatch => {
-    axios[method](`${consts.API_URL}/billingCycles/${id}`, values)
+    axios[method](`${consts.API_URL}/billingCycles/${id}`, novo)
       .then(resp => {
         toastr.success("Exito", "Operacao Realizada con exito");
         dispatch(init());
@@ -38,8 +47,20 @@ function submit(values, method) {
       });
   };
 }
+
 // Refacturar esta funcion
 export function showUpdate(billingCycle) {
+  for (let index = 0; index < billingCycle.credits.length; index++) {
+    billingCycle.credits[index].value = CoverteMoeda(
+      `${billingCycle.credits[index].value}`
+    );
+  }
+  for (let index = 0; index < billingCycle.debts.length; index++) {
+    billingCycle.debts[index].value = CoverteMoeda(
+      `${billingCycle.debts[index].value}`
+    );
+  }
+
   return [
     showTabs("tabUpdate"),
     selectTab("tabUpdate"),
