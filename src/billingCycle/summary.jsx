@@ -23,6 +23,7 @@ export default ({ credit, debt }) => (
           value={debt}
           text="Total de Debitos"
         />
+        {console.log(debt)}
         <ValueBox
           cols="12 4"
           color="blue"

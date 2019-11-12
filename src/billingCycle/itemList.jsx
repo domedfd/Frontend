@@ -25,18 +25,18 @@ class ItemList extends Component {
   renderRows() {
     const list = this.props.list || [];
 
-    const filtro = this.props.list.reduce(
-      // (a, o) => (o.value ? a.concat(CoverteMoeda(`${o.value}`)) : a),
-      (a, o) =>
-        o.value
-          ? a.concat({
-              _id: o._id,
-              name: o.name,
-              value: CoverteMoeda(`${o.value}`)
-            })
-          : a,
-      []
-    );
+    // const filtro = this.props.list.reduce(
+    //   // (a, o) => (o.value ? a.concat(CoverteMoeda(`${o.value}`)) : a),
+    //   (a, o) =>
+    //     o.value
+    //       ? a.concat({
+    //           _id: o._id,
+    //           name: o.name,
+    //           value: CoverteMoeda(`${o.value}`)
+    //         })
+    //       : a,
+    //   []
+    // );
 
     return list.map((item, index) => (
       <tr key={index}>

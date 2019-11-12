@@ -23,16 +23,16 @@ const CoverteNum = value => {
 
   return convertido;
 };
-const CoverteMoeda = value => {
-  if (!value) {
-    return value;
-  }
-  const onlyNums = value.replace(/[^\d]/g, "");
+// const CoverteMoeda = value => {
+//   if (!value) {
+//     return value;
+//   }
+//   const onlyNums = value.replace(/[^\d]/g, "");
 
-  if (onlyNums.length <= 20) {
-    return format3(onlyNums, "PYG");
-  }
-};
+//   if (onlyNums.length <= 20) {
+//     return format3(onlyNums, "PYG");
+//   }
+// };
 
 export { CoverteNum };
 export default normalizePhone;
