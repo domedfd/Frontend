@@ -90,6 +90,7 @@ class ItemList extends Component {
           <button
             type="button"
             className="btn btn-success"
+            tabindex="-1"
             onClick={() => this.add(index + 1)}
           >
             <i className="fa fa-plus"></i>
@@ -97,6 +98,7 @@ class ItemList extends Component {
           <button
             type="button"
             className="btn btn-warning"
+            tabindex="-1"
             onClick={() => this.add(index + 1, item)}
           >
             <i className="fa fa-clone"></i>
@@ -104,6 +106,7 @@ class ItemList extends Component {
           <button
             type="button"
             className="btn btn-danger"
+            tabindex="-1"
             onClick={() => this.remove(index)}
           >
             <i className="fa fa-trash-o"></i>
