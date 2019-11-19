@@ -5,7 +5,6 @@ import { Field, arrayInsert, arrayRemove } from "redux-form";
 import Grid from "../common/layout/gird";
 import Input from "../common/form/input";
 import If from "../common/operador/if";
-import CoverteMoeda from "../common/form/NormalizePhone";
 
 import "../common/template/custom.css";
 
@@ -142,7 +141,4 @@ class ItemList extends Component {
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ arrayInsert, arrayRemove }, dispatch);
-export default connect(
-  null,
-  mapDispatchToProps
-)(ItemList);
+export default connect(null, mapDispatchToProps)(ItemList);
