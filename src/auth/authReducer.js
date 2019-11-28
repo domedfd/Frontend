@@ -15,6 +15,8 @@ export default (state = INITIAL_STATE, action) => {
       }
     case "USER_FETCHED":
       localStorage.setItem(userkey, JSON.stringify(action.payload));
+      console.log("a senha e:");
+      console.log(action.payload);
       return { ...state, user: action.payload, validToken: true };
     default:
       return state;

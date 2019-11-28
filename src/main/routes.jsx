@@ -9,7 +9,7 @@ export default props => (
   <div className="content-wrapper">
     <Switch>
       <Route exact path="/" component={Dashboard} />
-      <Route path="/users" component={UserManager} />
+      <Route path="/UserManager" component={UserManager} />
       <Route path="/billingCycles" component={BillingCycle} />
       <Redirect from="*" to="/" />
     </Switch>

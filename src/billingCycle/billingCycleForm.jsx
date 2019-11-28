@@ -104,7 +104,4 @@ const mapStateToProps = state => ({
   debts: selector(state, "debts")
 });
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch);
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BillinCycleForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BillinCycleForm);

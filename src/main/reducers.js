@@ -7,6 +7,7 @@ import DashboardReducer from "../dashboard/dashboardReducer";
 import TabReducer from "../common/tab/tabReducer";
 import BillingCycleReducer from "../billingCycle/billingCycleReducer";
 import AuthReducer from "../auth/authReducer";
+import UserManagerReducer from "../user/UserManagerReducer";
 
 const rootReducer = combineReducers({
   dashboard: DashboardReducer, //() => ({ summary: { credit: 100, debt: 50 } })
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   billingCycle: BillingCycleReducer,
   form: formReducer,
   toastr: toastrReducer,
-  auth: AuthReducer
+  auth: AuthReducer,
+  user: UserManagerReducer
 });
 export default rootReducer;
