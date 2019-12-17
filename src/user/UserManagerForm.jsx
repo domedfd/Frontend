@@ -9,9 +9,7 @@ import Input from "../common/form/inputAuth";
 class UserManagerForm extends Component {
   render() {
     const { handleSubmit, readOnly, credits, debts } = this.props;
-    {
-      console.log(this.props.tab);
-    }
+
     const loginMode = false;
 
     return (

@@ -20,7 +20,7 @@ export default class Dashboard2 extends Component {
   }
 
   render() {
-    const { credit, debt } = this.state;
+    const { credit, debt, list } = this.state;
     return (
       <div>
         <ContentHeader title="Dashboard" small="Version 2.0" />
@@ -30,6 +30,7 @@ export default class Dashboard2 extends Component {
               cols="12 4"
               color="green"
               icon="bank"
+              money={true}
               value={credit}
               text="Total de Creditos"
             />
@@ -37,6 +38,7 @@ export default class Dashboard2 extends Component {
               cols="12 4"
               color="red"
               icon="credit-card"
+              money={true}
               value={debt}
               text="Total de Debitos"
             />
@@ -44,8 +46,16 @@ export default class Dashboard2 extends Component {
               cols="12 4"
               color="blue"
               icon="money"
+              money={true}
               value={credit - debt}
               text="Valor consolidado"
+            />
+            <ValueBox
+              cols="12 2"
+              color="yellow"
+              icon="list"
+              value={list}
+              text="Pedidos"
             />
           </Row>
         </Content>

@@ -13,8 +13,8 @@ class BillingCyclesList extends Component {
     return list.map(bc => (
       <tr key={bc._id}>
         <td>{bc.name}</td>
-        <td>{bc.month}</td>
-        <td>{bc.year}</td>
+        <td>{bc.code}</td>
+        <td>{bc.date}</td>
         <td>
           {/*refactura los botones*/}
           <button
@@ -41,8 +41,8 @@ class BillingCyclesList extends Component {
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Mes</th>
-              <th>Ano</th>
+              <th>Codigo</th>
+              <th>Fecha</th>
               <th className="table-actions">Acciones</th>
             </tr>
           </thead>
@@ -56,7 +56,4 @@ class BillingCyclesList extends Component {
 const mapStateToProps = state => ({ list: state.billingCycle.list });
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getList, showUpdate, showDelete }, dispatch);
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BillingCyclesList);
+export default connect(mapStateToProps, mapDispatchToProps)(BillingCyclesList);

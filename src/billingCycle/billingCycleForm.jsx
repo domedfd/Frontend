@@ -33,28 +33,28 @@ class BillinCycleForm extends Component {
           <Field
             name="name"
             component={labelAndInput}
-            label="nome"
+            label="Nombre"
             cols="12 4"
             placeholder="Informe el nombre"
             type="text"
             readOnly={readOnly}
           />
           <Field
-            name="month"
+            name="code"
             component={labelAndInput}
-            label="Mes"
+            label="Codigo"
             cols="12 4"
-            placeholder="Informe el Mes"
+            placeholder="Informe el Codigo"
             type="number"
             readOnly={readOnly}
           />
           <Field
-            name="year"
+            name="date"
             component={labelAndInput}
-            label="ano"
+            label="Fecha"
             cols="12 4"
-            placeholder="Informe el ano"
-            type="number"
+            placeholder="Informe la fecha"
+            type="date"
             readOnly={readOnly}
           />
           <Summary credit={sumOfCredits} debt={sumOfDebts} />

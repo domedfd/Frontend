@@ -28,11 +28,14 @@ export function remove(values) {
 
 function submit(values, method) {
   const novo = { ...values };
-  for (let index = 0; index < novo.debts.length; index++) {
-    const debitos = novo.debts[index].value;
-    const creditos = novo.credits[index].value;
-    novo.debts[index].value = CoverteNum(debitos);
+
+  for (let index = 0; index < novo.credits.length; index++) {
+    const creditos = novo.credits[index].value ? novo.credits[index].value : 0;
     novo.credits[index].value = CoverteNum(creditos);
+  }
+  for (let index = 0; index < novo.debts.length; index++) {
+    const debitos = novo.debts[index].value ? novo.debts[index].value : 0;
+    novo.debts[index].value = CoverteNum(debitos);
   }
 
   const id = novo._id ? novo._id : "";

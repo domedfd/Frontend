@@ -37,8 +37,8 @@ class Auth extends Component {
         <div className="login-logo">
           <b> Dom</b>group
           <br />
-          {Const.OAPI_URL} <br />
-          {Const.API_URL} <br />
+          {/* {Const.OAPI_URL} <br />
+          {Const.API_URL} <br /> */}
         </div>
         <div className="login-box-body">
           <p className="login-box-msg">Bienvenido!</p>
@@ -100,7 +100,4 @@ class Auth extends Component {
 Auth = reduxForm({ form: "authForm" })(Auth);
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ login, signup }, dispatch);
-export default connect(
-  null,
-  mapDispatchToProps
-)(Auth);
+export default connect(null, mapDispatchToProps)(Auth);
