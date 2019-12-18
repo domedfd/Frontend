@@ -1,9 +1,8 @@
 import React from "react";
 
 export default props => (
-  <select {...props.select} readOnly={props.readOnly}>
-    <option value="PAGO" {...(props.default ? "selected" : "")}></option>
-    <option value="PENDENTE"></option>
+  <select className="form-control" {...props.select} readOnly={props.readOnly}>
+    {props.children}
   </select>
 );
 //   <input

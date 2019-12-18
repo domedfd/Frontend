@@ -11,7 +11,6 @@ import Row from "../common/layout/row";
 import Grid from "../common/layout/gird";
 import Messages from "../common/msg/messages";
 import Input from "../common/form/inputAuth";
-import Const from "../../src/consts";
 
 class Auth extends Component {
   constructor(props) {

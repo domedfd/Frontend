@@ -25,7 +25,6 @@ class Navbar extends Component {
             }`}
           >
             <a
-              href="javascript:;"
               onClick={() => this.changeOpen()}
               aria-expanded={this.state.open ? "true" : "false"}
               className="dropdown"
@@ -71,7 +70,4 @@ class Navbar extends Component {
 const mapStateToProps = state => ({ user: state.auth.user });
 const mapDispatchToProps = dispatch => bindActionCreators({ logout }, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

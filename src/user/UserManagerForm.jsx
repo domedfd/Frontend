@@ -5,10 +5,13 @@ import { reduxForm, Field, formValueSelector } from "redux-form";
 
 import { init } from "./UserManagerActions";
 import Input from "../common/form/inputAuth";
+import Select from "../common/form/Select";
+import If from "../common/operador/if";
 
 class UserManagerForm extends Component {
   render() {
-    const { handleSubmit, readOnly, credits, debts } = this.props;
+    const { perfil } = this.props.user;
+    const { handleSubmit, readOnly } = this.props;
 
     const loginMode = false;
 
@@ -22,6 +25,7 @@ class UserManagerForm extends Component {
             placeholder="Nombre"
             icon="user"
             hide={loginMode}
+            readOnly={readOnly}
           />
           <Field
             component={Input}
@@ -29,6 +33,7 @@ class UserManagerForm extends Component {
             name="email"
             placeholder="email"
             icon="envelope"
+            readOnly={readOnly}
           />
           <Field
             component={Input}
@@ -36,6 +41,7 @@ class UserManagerForm extends Component {
             name="password"
             placeholder="Contrasena"
             icon="lock"
+            readOnly={readOnly}
           />
           <Field
             component={Input}
@@ -44,11 +50,27 @@ class UserManagerForm extends Component {
             placeholder="Confirmar Contrasena"
             icon="lock"
             hide={loginMode}
+            readOnly={readOnly}
           />
-          <Field className="form-control" name="perfil" component="select">
-            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
-            <option value="USUARIO">USUARIO</option>
-          </Field>
+          <If test={perfil === "ADMINISTRADOR" ? true : false}>
+            <Field
+              component={Select}
+              type="select"
+              name="perfil"
+              hide={loginMode}
+              readOnly={readOnly}
+            >
+              <option key="vacio" value="" selected disabled hidden>
+                Selecione el perfil de usuario
+              </option>
+              <option key="USUARIO" value="USUARIO">
+                USUARIO
+              </option>
+              <option key="ADMINISTRADOR" value="ADMINISTRADOR">
+                ADMINISTRADOR
+              </option>
+            </Field>
+          </If>
         </div>
         <div className="box-footer">
           <button type="submit" className={`btn btn-${this.props.submitClass}`}>
@@ -73,7 +95,8 @@ UserManagerForm = reduxForm({
 })(UserManagerForm);
 const selector = formValueSelector("UserManagerForm");
 const mapStateToProps = state => ({
-  list: selector(state, "list")
+  list: selector(state, "list"),
+  user: state.auth.user
 });
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(UserManagerForm);
