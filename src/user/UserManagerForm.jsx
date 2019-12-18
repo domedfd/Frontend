@@ -45,6 +45,10 @@ class UserManagerForm extends Component {
             icon="lock"
             hide={loginMode}
           />
+          <Field className="form-control" name="perfil" component="select">
+            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+            <option value="USUARIO">USUARIO</option>
+          </Field>
         </div>
         <div className="box-footer">
           <button type="submit" className={`btn btn-${this.props.submitClass}`}>

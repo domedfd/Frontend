@@ -14,6 +14,7 @@ class UserManagerList extends Component {
       <tr key={bc._id}>
         <td>{bc.name}</td>
         <td>{bc.email}</td>
+        <td>{bc.perfil}</td>
         <td>
           {/*refactura los botones*/}
           <button
@@ -41,6 +42,7 @@ class UserManagerList extends Component {
             <tr>
               <th>Nombre</th>
               <th>Correo</th>
+              <th>Perfil</th>
               <th className="table-actions">Acciones</th>
             </tr>
           </thead>
