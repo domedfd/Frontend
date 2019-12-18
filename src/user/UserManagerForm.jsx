@@ -5,7 +5,6 @@ import { reduxForm, Field, formValueSelector } from "redux-form";
 
 import { init } from "./UserManagerActions";
 import Input from "../common/form/inputAuth";
-import Select from "../common/form/Select";
 import If from "../common/operador/if";
 
 class UserManagerForm extends Component {
@@ -54,9 +53,9 @@ class UserManagerForm extends Component {
           />
           <If test={perfil === "ADMINISTRADOR" ? true : false}>
             <Field
-              component={Select}
-              type="select"
+              className="form-control"
               name="perfil"
+              component="select"
               hide={loginMode}
               readOnly={readOnly}
             >
