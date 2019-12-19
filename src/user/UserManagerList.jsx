@@ -17,7 +17,11 @@ class UserManagerList extends Component {
     return list.map(bc => (
       <If
         test={
-          administrador ? true : this.props.user.name === bc.name ? true : false
+          administrador
+            ? true
+            : this.props.user.email === bc.email
+            ? true
+            : false
         }
       >
         <tr key={bc._id}>

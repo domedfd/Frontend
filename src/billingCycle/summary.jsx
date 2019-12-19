@@ -14,6 +14,7 @@ export default ({ credit, debt }) => (
           color="green"
           icon="bank"
           value={credit}
+          money={true}
           text="Total de Creditos"
         />
         <ValueBox
@@ -21,12 +22,14 @@ export default ({ credit, debt }) => (
           color="red"
           icon="credit-card"
           value={debt}
+          money={true}
           text="Total de Debitos"
         />
         <ValueBox
           cols="12 4"
           color="blue"
           icon="money"
+          money={true}
           value={credit - debt}
           text="Saldo"
         />
